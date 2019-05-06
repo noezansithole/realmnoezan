@@ -50,10 +50,10 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
-        return []; // Remove this line to activate
+        
 
         return [
-            'Realm\AddressBook\Components\MyComponent' => 'myComponent',
+            'Realm\AddressBook\Components\ContactList' => 'ContactList',
         ];
     }
 
