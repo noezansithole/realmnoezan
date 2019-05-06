@@ -1,3 +1,5 @@
 1.0.1: 
   - First version of AddressBook
   - create_contacts_table.php
+  - create_c_emails_table.php
+  - create_c_numbers_table.php

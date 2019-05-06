@@ -4,21 +4,21 @@ use Schema;
 use October\Rain\Database\Schema\Blueprint;
 use October\Rain\Database\Updates\Migration;
 
-class CreateContactsTable extends Migration
+class CreateCEmailsTable extends Migration
 {
     public function up()
     {
-        Schema::create('realm_addressbook_contacts', function(Blueprint $table) {
+        Schema::create('realm_addressbook_c_emails', function(Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('firstname')->nullable();
-            $table->string('lastname')->nullable();
+            $table->integer('contact_id')->nullable()->unsigned();
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('realm_addressbook_contacts');
+        Schema::dropIfExists('realm_addressbook_c_emails');
     }
 }

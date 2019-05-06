@@ -3,14 +3,14 @@
 use Model;
 
 /**
- * Contacts Model
+ * CNumber Model
  */
-class Contacts extends Model
+class CNumber extends Model
 {
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'realm_addressbook_contacts';
+    public $table = 'realm_addressbook_c_numbers';
 
     /**
      * @var array Guarded fields
@@ -26,11 +26,7 @@ class Contacts extends Model
      * @var array Relations
      */
     public $hasOne = [];
-     public $hasMany = [
-        
-        'emails' => ['Realm\AddressBook\Models\CEmail','key'=>'contact_id'],
-        'contactnumbers' => ['Realm\AddressBook\Models\CNumber','key'=>'contact_id']
-    ];
+    public $hasMany = [];
     public $belongsTo = [];
     public $belongsToMany = [];
     public $morphTo = [];
