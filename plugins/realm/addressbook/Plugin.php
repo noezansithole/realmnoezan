@@ -54,6 +54,7 @@ class Plugin extends PluginBase
 
         return [
             'Realm\AddressBook\Components\ContactList' => 'ContactList',
+            'Realm\AddressBook\Components\ContactItem' => 'ContactItem',
         ];
     }
 

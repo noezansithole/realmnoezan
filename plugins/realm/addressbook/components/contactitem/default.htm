@@ -1,0 +1,81 @@
+{% set contactitem = ContactItem.contactitem %}
+
+{% flash %}
+    <div class="alert alert-{{ type }}">
+        {{ message }}
+    </div>
+{% endflash %}
+
+{% if contactitem is not empty %}
+	<div class="jumbotron">
+	    <div class="container">
+	        <h1>{{contactitem.firstname}} {{contactitem.lastname}}</h1>
+	    </div>
+	</div>
+
+	{### CREAT UPDATE FORM ###}
+
+	<form data-request="onUpdateContact" data-request-data="id: {{contactitem.id}}"  data-request-flash data-request-validate data-request-files>
+	   <div class="row">
+			<div class="col-sm-4">
+				<span class="text-danger" data-validate-for="firstname"></span>
+				<input id="firstname" value="{{contactitem.firstname}}" name="firstname" type="text" class="form-control mt-0" style="width: 100%; " required placeholder="First Name">
+				
+			</div>
+			<div class="col-sm-4">
+				<span class="text-danger" data-validate-for="lastname"></span>
+				<input id="lastname" value="{{contactitem.lastname}}" name="lastname" type="text" class="form-control mt-0" style="width: 100%; " required placeholder="Last Name">
+				
+			</div>
+			<div class="col-sm-4">
+				<button type="submit" class="btn btn-primary btn-block mt-4 " data-attach-loading>Update</button>
+			</div>
+		 </div>
+	  </form>
+	  
+	  <div class="row" style="margin-top: 20px;">
+	  	<div class="col-sm-6">
+	  		<div class="panel panel-default">
+		  		<div class="panel-heading">Contact Numbers</div>
+		  		<div id="numberlist"> {% partial __SELF__ ~ '::numberlist' response=contactitem.contactnumbers  %}</div>
+		  		
+		  		<div class="panel-footer">
+			  		<form data-request="onSaveNumber" data-request-update="'{{__SELF__ ~ '::numberlist'}}': '#numberlist'"  data-request-files data-request-flash>
+					   <div class="row">
+							
+							<div class="col-sm-8">
+								<span class="text-danger" data-validate-for="contactnumber"></span>
+								<input id="contactnumber" value="" name="contactnumber" type="text" class="form-control mt-0" style="width: 100%; " required placeholder="Contact Number">
+								
+							</div>
+							<div class="col-sm-4">
+								<button type="submit" class="btn btn-primary btn-block mt-4 " data-attach-loading>Add Number</button>
+							</div>
+						 </div>
+					</form>
+				</div>
+			</div>
+	  	</div>
+	  	<div class="col-sm-6">
+	  		<div class="panel panel-default">
+		  		<div class="panel-heading">Contact Numbers</div>
+		  		<div id="emaillist"> {% partial __SELF__ ~ '::emaillist' response=contactitem.emails  %}</div>
+		  		<div class="panel-footer">
+			  		<form data-request="onSaveEmail" data-request-update="'{{__SELF__ ~ '::emaillist'}}': '#emaillist'"  data-request-files data-request-flash>
+					   <div class="row">
+							
+							<div class="col-sm-8">
+								<span class="text-danger" data-validate-for="email"></span>
+								<input id="email" value="" name="email" type="email" class="form-control mt-0" style="width: 100%; " required placeholder="Email Address">
+								
+							</div>
+							<div class="col-sm-4">
+								<button type="submit" class="btn btn-primary btn-block mt-4 " data-attach-loading>Add Email</button>
+							</div>
+						 </div>
+					</form>
+				</div>
+			</div>
+	  	</div>
+	  </div>
+{% endif %}

@@ -1,0 +1,20 @@
+<div style="padding:20px; border: #ccc solid 1px; border-radius: 6px; margin-top: 40px;"> 
+		<form data-request="onSave"  data-request-flash data-request-validate>
+		
+		<div class="row">
+			<div class="col-sm-4">
+				<span class="text-danger" data-validate-for="firstname"></span>
+				<input id="firstname" name="firstname" type="text" class="form-control mt-0" style="width: 100%; " required placeholder="First Name">
+				
+			</div>
+			<div class="col-sm-4">
+				<span class="text-danger" data-validate-for="lastname"></span>
+				<input id="lastname" name="lastname" type="text" class="form-control mt-0" style="width: 100%; " required placeholder="Last Name">
+				
+			</div>
+			<div class="col-sm-4">
+				<button type="submit" class="btn btn-primary btn-block mt-4 " data-attach-loading>Save New Contact</button>
+			</div>
+		 </div>
+	</form>
+</div>
